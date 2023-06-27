@@ -19,8 +19,8 @@ namespace MVC_TDPC_Net6.Controllers
         public async Task<IActionResult> InsertUser([FromBody] UserModel model)
         {
             User user = new User();
-            user.Nome = model.Nome;
-            user.Cognome = model.Cognome;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
             this.repository.InsertUser(user);
             return Ok(200);
         }
@@ -30,8 +30,8 @@ namespace MVC_TDPC_Net6.Controllers
         {
             User user = new User();
             user.ID = System.Guid.Parse(model.ID);
-            user.Nome = model.Nome;
-            user.Cognome = model.Cognome;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
             this.repository.UpdateUser(user);
             return Ok(200);
         }

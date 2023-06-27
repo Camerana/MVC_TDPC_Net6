@@ -3,7 +3,7 @@
     public class UserModel
     {
         public string? ID { get; set; }
-        public string? Nome { get; set; }
-        public string? Cognome { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 
 function insertUser() {
     var body = {};
-    body.Nome = $('#userName').val();
+    body.Nome = $('#userFirstName').val();
     body.Cognome = $('#userLastName').val();
     $.ajax({
         method: "POST",
@@ -83,14 +83,14 @@ function deleteUserById(id) {
 function updateUserById(id) {
     nameP = document.createElement("p");
     nameP.style.textAlign = "center";
-    nameP.innerText = 'Nome';
+    nameP.innerText = 'First Name';
     document.getElementById("modal-body").appendChild(nameP);
     nameTextArea = document.createElement("input");
     nameP.appendChild(nameTextArea);
 
     lastNameP = document.createElement("p");
     lastNameP.style.textAlign = "center";
-    lastNameP.innerText = 'Cognome';
+    lastNameP.innerText = 'Last Name';
     document.getElementById("modal-body").appendChild(lastNameP);
     lastNameTextArea = document.createElement("input");
     lastNameP.appendChild(lastNameTextArea);

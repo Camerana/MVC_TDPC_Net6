@@ -60,8 +60,8 @@ namespace MVC_TDPC_Net6.Controllers
                 model.Add(new UserModel()
                 {
                     ID = u.ID.ToString(),
-                    Nome = u.Nome,
-                    Cognome = u.Cognome
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
                 });
             return View(model);
         }
@@ -71,8 +71,8 @@ namespace MVC_TDPC_Net6.Controllers
             UserModel model = new UserModel()
             {
                 ID = user.ID.ToString(),
-                Nome = user.Nome,
-                Cognome = user.Cognome
+                FirstName = user.FirstName,
+                LastName = user.LastName
             };
             return View(model);
         }
@@ -84,8 +84,8 @@ namespace MVC_TDPC_Net6.Controllers
                 model.Add(new UserModel()
                 {
                     ID = u.ID.ToString(),
-                    Nome = u.Nome,
-                    Cognome = u.Cognome
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
                 });
             return View(model);
         }
@@ -116,8 +116,8 @@ namespace MVC_TDPC_Net6.Controllers
                 model.Add(new UserModel()
                 {
                     ID = u.ID.ToString(),
-                    Nome = u.Nome,
-                    Cognome = u.Cognome
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
                 });
             return View(model);
         }
@@ -130,8 +130,8 @@ namespace MVC_TDPC_Net6.Controllers
                 model.Add(new UserModel()
                 {
                     ID = u.ID.ToString(),
-                    Nome = u.Nome,
-                    Cognome = u.Cognome
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
                 });
             return View(model);
         }

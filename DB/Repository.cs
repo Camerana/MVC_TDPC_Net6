@@ -30,8 +30,8 @@ namespace MVC_TDPC_Net6.DB
             //select * from users where nome like "%filter%"
             //or cognome like "%filter%"
             List<User> result = this.DBContext.Users
-                .Where(p => p.Nome.Contains(filter)
-                || p.Cognome.Contains(filter)).ToList();
+                .Where(p => p.FirstName.Contains(filter)
+                || p.LastName.Contains(filter)).ToList();
             return result;
         }
         public void InsertUser(User user)

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Users With Filter";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model List<UserModel>;
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    @foreach (UserModel u in Model)
+    {
+        <tr>
+            <td>@u.FirstName</td>
+            <td>@u.LastName</td>
+        </tr>
+    }
+</table>
