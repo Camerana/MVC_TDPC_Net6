@@ -1,13 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using MVC_TDPC_Net6.DB;
+
 namespace MVC_TDPC_Net6
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            //general configuration
+            var configuration = new ConfigurationBuilder().AddJsonFile($"appsettings.json").Build();
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<Repository>();
+            builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
