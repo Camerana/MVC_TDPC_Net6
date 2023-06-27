@@ -4,6 +4,18 @@ using System.Diagnostics;
 
 namespace MVC_TDPC_Net6.Controllers
 {
+    /*
+    - Creare nella pagina Javascript.cshtml un nuovo tasto che
+    chiami un endpoint di tipo GET GetMusicModels che restituisca
+    una lista di oggetti di tipo MusicModel (da creare nella
+    folder models).
+    - la classe Music ha due properties:
+        - string Cantante
+        - string Canzone
+    - Loggare in console e scrivere in pagina il risultato ottenuto 
+    dall'endpoint
+     
+     */
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -23,6 +35,10 @@ namespace MVC_TDPC_Net6.Controllers
             return View();
         }
         public IActionResult ButtonPage()
+        {
+            return View();
+        }
+        public IActionResult Javascript()
         {
             return View();
         }
