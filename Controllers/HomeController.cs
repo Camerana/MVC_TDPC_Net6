@@ -15,7 +15,10 @@ namespace MVC_TDPC_Net6.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            UserModel model = new UserModel();
+            model.Name = "Ciccio";
+            model.LastName = "Pasticcio";
+            return View(model);
         }
 
         public IActionResult Privacy()
@@ -25,6 +28,20 @@ namespace MVC_TDPC_Net6.Controllers
         public IActionResult ButtonPage()
         {
             return View();
+        }
+        public IActionResult Music()
+        {
+            MusicModel model = new MusicModel();
+            for (int i = 0; i < 10; i++)
+            {
+                model.Songs.Add(
+                    new MusicModel.SongAndArtistModel()
+                    {
+                        ArtistName = "Artista " + i,
+                        SongName = "Canzone " + i
+                    });
+            }
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
