@@ -1,17 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_TDPC_Net6.Models;
+using MVC_TDPC_Net6.Services;
 using System.Diagnostics;
 
 namespace MVC_TDPC_Net6.Controllers
 {
+    /*
+    - creare un servizio che restituisca un numero casuale con:
+        - interfaccia IRandomNumber
+        - classe RandomNumberLessThan10 (numero casuale < 10)
+        - classe RandomNumberGreaterThan50 (numero casuale > 50)
+    - tramite dependency injection passare un oggetto di tipo
+    IRandomNumber a HomeController
+    - creare un endpoint RandomNumberPage in HomeController
+    - tramite l'endpoint RandomNumberPage mostrare in una view il numero
+    generato dal servizio
+    - nello startup.cs configurare il servizio da usare (services.add..)
+     */
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IDBConnection DBConnection;
+        private readonly IRandomNumber RandomNumber;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IDBConnection DBConnection,
+            IRandomNumber RandomNumber)
         {
-            _logger = logger;
+            this.DBConnection = DBConnection;
+            this.RandomNumber = RandomNumber;
         }
+
 
         public IActionResult Index()
         {
@@ -25,6 +42,20 @@ namespace MVC_TDPC_Net6.Controllers
         public IActionResult ButtonPage()
         {
             return View();
+        }
+        public IActionResult DBConnectionPage()
+        {
+            string result = this.DBConnection.Connect();
+            DBConnectionModel model = new DBConnectionModel();
+            model.DBConnectionResult = result;
+            return View(model);
+        }
+
+        public IActionResult RandomNumberPage()
+        {
+            RandomNumberPageModel model = new RandomNumberPageModel();
+            model.RandomNumber = RandomNumber.GenerateNumber();
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

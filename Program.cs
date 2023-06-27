@@ -1,3 +1,5 @@
+using MVC_TDPC_Net6.Services;
+
 namespace MVC_TDPC_Net6
 {
     public class Program
@@ -8,6 +10,11 @@ namespace MVC_TDPC_Net6
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //builder.Services.AddSingleton
+            builder.Services.AddScoped<IDBConnection, SQLServerConnection>();
+            builder.Services.AddScoped<IRandomNumber, RandomNumberLessThan10>();
+            //builder.Services.AddTransient
 
             var app = builder.Build();
 
