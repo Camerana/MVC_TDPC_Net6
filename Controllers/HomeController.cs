@@ -2,18 +2,17 @@
 using MVC_TDPC_Net6.DB;
 using MVC_TDPC_Net6.DB.Entities;
 using MVC_TDPC_Net6.Models;
-using System;
 using System.Diagnostics;
 
 namespace MVC_TDPC_Net6.Controllers
 {
     /*
      esercizio:
-        - aggiungere un API controller con una post che crei una Person
+        - aggiungere un API controller con una post che crei uno User
         su DB prendendo i dati dall'input dell'utente nel frontend
     passi:
         - creare database con nome arbitrario
-        - creare tabella Persons
+        - creare tabella Users
         - creare la connection string nell'appsettings.json
         - importare i pacchetti nuget necessari (guardare nelle 
         dependencies di questo progetto)
@@ -22,7 +21,7 @@ namespace MVC_TDPC_Net6.Controllers
         - registrare i servizi necessari in Startup.cs
         (dbcontext, repository)
         - creare un API controller con la post di insert
-            - esempio nel branch MVCeAPI nel PersonController
+            - esempio nel branch MVCeAPI nello UserController
         - creare in una view un form di insert con n textbox e un button di insert
         - creare una funzione js collegata al button di insert che
         chiami l'endpoint post del controller
@@ -31,11 +30,9 @@ namespace MVC_TDPC_Net6.Controllers
      */
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly Repository repository;
-        public HomeController(ILogger<HomeController> logger, Repository repository)
+        public HomeController(Repository repository)
         {
-            _logger = logger;
             this.repository = repository;
         }
 

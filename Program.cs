@@ -15,8 +15,9 @@ namespace MVC_TDPC_Net6
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<Repository>();
             builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<Repository>();
+            
 
             var app = builder.Build();
 
