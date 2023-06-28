@@ -4,8 +4,8 @@
 
 function insertUser() {
     var body = {};
-    body.Nome = $('#userFirstName').val();
-    body.Cognome = $('#userLastName').val();
+    body.FirstName = $('#userFirstName').val();
+    body.LastName = $('#userLastName').val();
     $.ajax({
         method: "POST",
         url: "/api/User/InsertUser",
@@ -103,8 +103,8 @@ function updateUserById(id) {
     OKbutton.onclick = function () {
         var body = {};
         body.ID = id;
-        body.Nome = nameTextArea.value;
-        body.Cognome = lastNameTextArea.value;
+        body.FirstName = nameTextArea.value;
+        body.LastName = lastNameTextArea.value;
         $.ajax({
             method: "POST",
             url: "/api/User/UpdateUser",
