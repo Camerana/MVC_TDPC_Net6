@@ -15,6 +15,21 @@ namespace MVC_TDPC_Net6.Controllers
             this.repository = repository;
         }
 
+        [HttpPost("GetsUsersWithFilter")]
+        public async Task<IActionResult> GetUsersWithFilter([FromBody] string filter)
+        {
+            List<User> users = this.repository.GetUsersWithFilter(filter);
+            List<UserModel> model = new List<UserModel>();
+            foreach (User u in users)
+                model.Add(new UserModel()
+                {
+                    ID = u.ID.ToString(),
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
+                });
+            return Ok(model);
+        }
+
         [HttpPost("InsertUser")]
         public async Task<IActionResult> InsertUser([FromBody] UserModel model)
         {
