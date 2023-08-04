@@ -33,12 +33,15 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-12">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - MVC_TDPC_Net6 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
