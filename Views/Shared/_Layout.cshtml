@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@using MVC_TDPC_Net6.DB.Entities;
+@inject UserManager<User> UserManager;
+@inject SignInManager<User> SignInManager;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -28,7 +33,37 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ButtonPage">ButtonPage</a>
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminPage">Admin Page</a>
+                                </li>
+                        }
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
+                                </li>
+                        }
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                                </li>
+                        }
+                        
                     </ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="nav-link text-dark">@UserManager.GetUserName(User)</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+                            </li>
+                        </ul>
+                        
+                    }
+                    
                 </div>
             </div>
         </nav>
