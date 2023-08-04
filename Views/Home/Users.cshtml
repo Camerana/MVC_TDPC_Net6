@@ -28,7 +28,7 @@
                         <tr>
                             <td>@Model[i].FirstName</td>
                             <td>@Model[i].LastName</td>
-                            <td><button class="btn-sm btn-danger" onclick="updateUserById('@Model[i].ID')">Update</button></td>
+                            <td><button class="btn-sm btn-warning" onclick="updateUserById('@Model[i].ID', '@Model[i].FirstName', '@Model[i].LastName')">Update</button></td>
                             <td><button class="btn-sm btn-danger" onclick="deleteUserById('@Model[i].ID')">Delete</button></td>
                         </tr>
                     }

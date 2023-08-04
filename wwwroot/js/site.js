@@ -61,13 +61,14 @@ function insertUser() {
     showModal();
 };
 
-function updateUserById(id) {
+function updateUserById(id, firstname, lastname) {
     clearModal();
     nameP = document.createElement("p");
     nameP.style.textAlign = "center";
     nameP.innerText = 'First Name';
     document.getElementById("modal-body").appendChild(nameP);
     nameTextArea = document.createElement("input");
+    nameTextArea.value = firstname;
     nameP.appendChild(nameTextArea);
 
     lastNameP = document.createElement("p");
@@ -75,6 +76,7 @@ function updateUserById(id) {
     lastNameP.innerText = 'Last Name';
     document.getElementById("modal-body").appendChild(lastNameP);
     lastNameTextArea = document.createElement("input");
+    lastNameTextArea.value = lastname;
     lastNameP.appendChild(lastNameTextArea);
 
     OKbutton = document.createElement("button");
@@ -123,6 +125,12 @@ function updateUserById(id) {
 
 function deleteUserById(id) {
     clearModal();
+
+    confirmP = document.createElement("p");
+    confirmP.style.textAlign = "center";
+    confirmP.innerText = 'Are you sure ?';
+    document.getElementById("modal-body").appendChild(confirmP);
+
     OKbutton = document.createElement("button");
     OKbutton.innerText = "OK";
     OKbutton.classList.add("btn");
